@@ -10,9 +10,9 @@
 - Output digit limit (up to 6 digits)
 - No negative answers in the output
 - No decimal answers in the output
-- Invalid input types (not hexadecimal)
-- Invalid outputs (division by 0)
+- No Invalid input types (not hexadecimal)
+- No Invalid outputs (division by 0)
 
 ### GUI
-- Individual buttons for every number, character and operation
+- Individual buttons for every number, character, and operation
 - Additional functions (clear, equal, backspace)
