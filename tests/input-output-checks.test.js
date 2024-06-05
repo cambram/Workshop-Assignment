@@ -24,8 +24,8 @@ describe("Input and Output", () => {
     });
 
     test("isInvalidInputType(x), should be true if x IS NOT an invalid input type, should be false if x IS an invalid input type", () => {
-        expect(isInvalidInputType("A4F")).toBe(false);
-        expect(isInvalidInputType("ZH5")).toBe(true);
+        expect(isInvalidInputType("a4f")).toBe(false);
+        expect(isInvalidInputType("zh5")).toBe(true);
     });
 
     test("isInvalidOutput(x), should return true if answer is undefined", () => {

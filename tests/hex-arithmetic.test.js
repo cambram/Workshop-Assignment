@@ -2,18 +2,18 @@ const { addition, subtraction, multiplication, division } = require('../hex-arit
 
 describe("Hexadecimal Arithmetic Operations", () => {
     test("addition(x, y) should return the sum of x and y", () => {
-        expect(addition("F42", "E3")).toBe("1025");
+        expect(addition("f42", "e3")).toBe("1025");
     });
 
     test("subtraction(x, y) should return the difference of x and y", () => {
-        expect(subtraction("F42", "E3")).toBe("e5f");
+        expect(subtraction("f42", "e3")).toBe("e5f");
     });
 
     test("multiplication(x, y) should return the product of x and y", () => {
-        expect(multiplication("F42", "E3")).toBe("d8786");
+        expect(multiplication("f42", "e3")).toBe("d8786");
     });
 
     test("division(x, y) should return the quotient of x and y", () => {
-        expect(division("F42", "E")).toBe("117");
+        expect(division("f42", "e")).toBe("117");
     });
 });

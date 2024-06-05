@@ -1,4 +1,3 @@
-//const tests = require('../server');
 const {app, startServer} = require('../server');
 const request = require("supertest");
 
