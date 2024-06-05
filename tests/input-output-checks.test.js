@@ -3,19 +3,19 @@ const { isInputLimitReached, isOutputLimitReached, doesContainNegatives,
 
 describe("Input and Output", () => {
     test("isInputLimitReached(x), should be false if x.length <= 3, should be true if x.length > 3", () => {
-        expect(isInputLimitReached(345)).toBe(false);
-        expect(isInputLimitReached(3345)).toBe(true);
+        expect(isInputLimitReached("3d4")).toBe(false);
+        expect(isInputLimitReached("3d44")).toBe(true);
     });
 
     test("isOutputLimitReached(x), should be false if x.length <= 6, should be true if x.length > 6", () => {
-        expect(isOutputLimitReached(34546)).toBe(false);
-        expect(isOutputLimitReached(3345536)).toBe(true);
+        expect(isOutputLimitReached("ab34")).toBe(false);
+        expect(isOutputLimitReached("ab3434e")).toBe(true);
     });
 
     test("doesContainNegatives(x), should be false if x >= 0, should be true if x < 0", () => {
-        expect(doesContainNegatives(21)).toBe(false);
-        expect(doesContainNegatives(0)).toBe(false);
-        expect(doesContainNegatives(-1)).toBe(true);
+        expect(doesContainNegatives("21")).toBe(false);
+        expect(doesContainNegatives("0")).toBe(false);
+        expect(doesContainNegatives("-1")).toBe(true);
     });
 
     test("isDecimal(x), should be false if x IS NOT a fraction, should be true if x IS a fraction", () => {

@@ -1,24 +1,42 @@
 let hexDictionary = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
 
 /* ------------------- Input and Output ------------------- */
+/**
+ * Checks if the output is a decimal
+ * 
+ * @param {string} input - the input in hexadecimal format.
+ * @returns {boolean} returns true if the input length is longer than 3 digits.
+ */
 function isInputLimitReached(input){
-    if(input.toString().length > 3){
+    if(input.length > 3){
         return true;
     } else {
         return false;
     }
 }
 
+/**
+ * Checks if the output is a decimal
+ * 
+ * @param {string} output - the output in hexadecimal format.
+ * @returns {boolean} returns true if the output length is longer than 6 digits.
+ */
 function isOutputLimitReached(output){
-    if(output.toString().length > 6){
+    if(output.length > 6){
         return true;
     } else {
         return false;
     }
 }
 
+/**
+ * Checks if the output is a decimal
+ * 
+ * @param {string} output - the output in hexadecimal format.
+ * @returns {boolean} returns true if the output is negative.
+ */
 function doesContainNegatives(output){
-    if(output < 0){
+    if(parseInt(output, 16) < 0){
         return true;
     } else {
         return false;
