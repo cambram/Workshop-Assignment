@@ -25,6 +25,12 @@ function doesContainNegatives(output){
     }
 }
 
+/**
+ * Checks if the output is a decimal
+ * 
+ * @param {number} output - the output in base 10 format.
+ * @returns {boolean} returns true if the input is a decimal.
+ */
 function isDecimal(output){
     if(output % 1 != 0){
         return true;
@@ -33,6 +39,12 @@ function isDecimal(output){
     }
 }
 
+/**
+ * Checks if the input type is valid. The input type should be of type hexadecimal
+ * 
+ * @param {string} input - the hexadecimal input.
+ * @returns {boolean} returns true for invalid input and false for valid input.
+ */
 function isInvalidInputType(input){
     for(var i = 0; i < input.length; i++){
         if(!containsHex(input.charAt(i))){
