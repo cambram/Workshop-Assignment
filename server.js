@@ -2,14 +2,14 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello world<h1>');
+    res.send('<h1>Hello World<h1>');
 });
 
 app.listen(3000, ()=>{
     console.log('server running on port 3000');
 });
 
-/* Hexadecimal Arithmetic Functions */
+/* ------------------- Hexadecimal Arithmetic Functions ------------------- */
 function addition(x, y){
     let result = (x+y);
     return result;
@@ -34,7 +34,7 @@ function division(x, y){
     }
 }
 
-/* Input and Output */
+/* ------------------- Input and Output ------------------- */
 function isInputLimitReached(input){
     if(input.toString().length > 3){
         return true;
@@ -78,4 +78,5 @@ function isInvalidOutput(){
 
 /* GUI */
 
-module.exports = {addition, subtraction, multiplication, division};
+module.exports = {addition, subtraction, multiplication, division, 
+    isInputLimitReached, isOutputLimitReached, doesContainNegatives, isDecimal};
