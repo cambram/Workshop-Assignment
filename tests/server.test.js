@@ -1,6 +1,7 @@
 //const tests = require('../server');
 const {app, startServer, addition, subtraction, multiplication, division, 
     isInputLimitReached, isOutputLimitReached, doesContainNegatives, isDecimal, isInvalidInputType, isInvalidOutput} = require('../server');
+const request = require("supertest");
 
 let server;
 
@@ -62,3 +63,13 @@ describe("Input and Output", () => {
         expect(isInvalidOutput(4/2)).toBe(false);
     });
 });
+
+describe('GET requests', () => {
+    it('should respond with a button for input', async () => {
+      await request(app).get('/')
+      .expect(200)
+      .expect((res) => {
+        expect(res.text).toContain('<button>1</button>');
+      });
+    });
+  });

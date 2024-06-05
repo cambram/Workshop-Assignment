@@ -3,7 +3,7 @@ const app = express();
 let hexDictionary = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
 
 app.get('/', (req, res) => {
-    res.send('<h1>Hello World<h1>');
+    res.send('<button>1</button>');
 });
 
 const startServer = () => {
