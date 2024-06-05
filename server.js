@@ -90,11 +90,14 @@ function containsHex(x){
     return contains;
 }
 
-function isInvalidOutput(){
-
+function isInvalidOutput(output){
+    if(output == undefined || output == Infinity)
+        return true;
+    else
+        return false;
 }
 
 /* GUI */
 
 module.exports = {app, startServer, addition, subtraction, multiplication, division, 
-    isInputLimitReached, isOutputLimitReached, doesContainNegatives, isDecimal, isInvalidInputType};
+    isInputLimitReached, isOutputLimitReached, doesContainNegatives, isDecimal, isInvalidInputType, isInvalidOutput};

@@ -1,6 +1,6 @@
 //const tests = require('../server');
 const {app, startServer, addition, subtraction, multiplication, division, 
-    isInputLimitReached, isOutputLimitReached, doesContainNegatives, isDecimal, isInvalidInputType} = require('../server');
+    isInputLimitReached, isOutputLimitReached, doesContainNegatives, isDecimal, isInvalidInputType, isInvalidOutput} = require('../server');
 
 let server;
 
@@ -56,6 +56,9 @@ describe("Input and Output", () => {
         expect(isInvalidInputType("A4F")).toBe(false);
         expect(isInvalidInputType("ZH5")).toBe(true);
     });
-});
 
-//isInputLimitReached, isOutputLimitReached, doesContainNegatives, isDecimal
+    test("isInvalidOutput(x), should return true if answer is undefined", () => {
+        expect(isInvalidOutput(4/0)).toBe(true);
+        expect(isInvalidOutput(4/2)).toBe(false);
+    });
+});
