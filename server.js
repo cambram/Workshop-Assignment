@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
+let hexDictionary = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
 
 app.get('/', (req, res) => {
     res.send('<h1>Hello World<h1>');
 });
 
-app.listen(3000, ()=>{
-    console.log('server running on port 3000');
-});
+const startServer = () => {
+    return app.listen(3000, ()=>{
+        console.log('server running on port 3000');
+    });
+};
 
 /* ------------------- Hexadecimal Arithmetic Functions ------------------- */
 function addition(x, y){
@@ -67,9 +70,24 @@ function isDecimal(output){
     }
 }
 
-let hexDictionary = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G'];
 function isInvalidInputType(input){
-    //?????
+    for(var i = 0; i < input.length; i++){
+        if(!containsHex(input.charAt(i))){
+            return true;
+        }
+    }
+    return false;
+}
+
+function containsHex(x){
+    let contains = false;
+    for(var i = 0; i < 16; i++){
+        if(x == hexDictionary[i]){
+            contains = true;
+            break;
+        }
+    }
+    return contains;
 }
 
 function isInvalidOutput(){
@@ -78,5 +96,5 @@ function isInvalidOutput(){
 
 /* GUI */
 
-module.exports = {addition, subtraction, multiplication, division, 
-    isInputLimitReached, isOutputLimitReached, doesContainNegatives, isDecimal};
+module.exports = {app, startServer, addition, subtraction, multiplication, division, 
+    isInputLimitReached, isOutputLimitReached, doesContainNegatives, isDecimal, isInvalidInputType};
