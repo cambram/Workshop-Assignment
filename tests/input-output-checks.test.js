@@ -1,5 +1,5 @@
 const { isInputLimitReached, isOutputLimitReached, doesContainNegatives, 
-    isDecimal, isInvalidInputType, isInvalidOutput } = require('../input-output-checks');
+    isDecimal, isInvalidInputType, isInfinity} = require('../input-output-checks');
 const { division } = require('../hex-arithmetic');
 
 describe("Input and Output", () => {
@@ -30,7 +30,7 @@ describe("Input and Output", () => {
     });
 
     test("isInvalidOutput(x), should return true if answer is undefined", () => {
-        expect(isInvalidOutput(division("4", "0"))).toBe(true);
-        expect(isInvalidOutput(division("4", "2"))).toBe(false);
+        expect(isInfinity(division("4", "0"))).toBe(true);
+        expect(isInfinity(division("4", "2"))).toBe(false);
     });
 });

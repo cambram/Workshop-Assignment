@@ -1,5 +1,5 @@
 const { isInputLimitReached, isOutputLimitReached, doesContainNegatives, 
-    isDecimal, isInvalidInputType, isInvalidOutput } = require('./input-output-checks');
+    isDecimal, isInvalidInputType, isInfinity } = require('./input-output-checks');
 /* ------------------- Hexadecimal Arithmetic Functions ------------------- */
 /**
  * Adds two hexadecimal numbers together.
@@ -12,6 +12,8 @@ function addition(x, y){
     if(isValidInput(x, y)){
         let temp= (parseInt(x, 16) + parseInt(y, 16));
         let result = temp.toString(16);
+        if(isInvalidOutput(result))
+            return null;
         return result;
     } else {
         return null;
@@ -29,6 +31,8 @@ function subtraction(x, y){
     if(isValidInput(x, y)){
         let temp = (parseInt(x, 16) - parseInt(y, 16));
         let result = temp.toString(16);
+        if(isInvalidOutput(result))
+            return null;
         return result;
     } else {
         return null;
@@ -46,6 +50,8 @@ function multiplication(x, y){
     if(isValidInput(x, y)){
         let temp = (parseInt(x, 16) * parseInt(y, 16));
         let result = temp.toString(16);
+        if(isInvalidOutput(result))
+            return null;
         return result;
     } else {
         return null;
@@ -63,7 +69,7 @@ function division(x, y){
     if(isValidInput(x, y)){
         let temp = (parseInt(x, 16) / parseInt(y, 16));
         let result = temp.toString(16);
-        if(isDecimal(result)) // to make sure the answer is not a decimal
+        if(isInvalidOutput(result))
             return null;
         return result;
     } else {
@@ -80,6 +86,16 @@ function division(x, y){
  */
 function isValidInput(x, y){
     return (!isInvalidInputType(x) && !isInvalidInputType(y) && !isInputLimitReached(x) && !isInputLimitReached(y));
+}
+
+/**
+ * Confirms the validity of output values
+ * 
+ * @param {string} output - the output in hexadecimal.
+ * @returns {string} returns true if the output is invalid.
+ */
+function isInvalidOutput(output){
+    return (isOutputLimitReached(output) || doesContainNegatives(output) || isDecimal(output) || isInfinity(output));
 }
 
 module.exports = { addition, subtraction, multiplication, division };

@@ -21,7 +21,7 @@ function isInputLimitReached(input){
  * @returns {boolean} returns true if the output length is longer than 6 digits.
  */
 function isOutputLimitReached(output){
-    if(output.length > 6){
+    if(output.length > 6 && output !== "Infinity"){
         return true;
     } else {
         return false;
@@ -52,9 +52,9 @@ function isDecimal(output){
     if(output == "Infinity")
         return false;
 
-    if(parseFloat(output, 16) % 1 != 0)
+    if(output.includes('.')){
         return true;
-    else 
+    }else 
         return false;
     
 }
@@ -90,12 +90,12 @@ function containsHex(x){
  * @param {string} output - the hexadecimal input.
  * @returns {boolean} returns true for invalid output.
  */
-function isInvalidOutput(output){
-    if(output == "Infinity")
+function isInfinity(output){
+    if(output == "Infinity" || output == null)
         return true;
     else
         return false;
 }
 
 module.exports = { isInputLimitReached, isOutputLimitReached, doesContainNegatives, 
-    isDecimal, isInvalidInputType, isInvalidOutput };
+    isDecimal, isInvalidInputType, isInfinity };
