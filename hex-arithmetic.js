@@ -1,4 +1,5 @@
-const { isInvalidInputType, isDecimal } = require('./input-output-checks');
+const { isInputLimitReached, isOutputLimitReached, doesContainNegatives, 
+    isDecimal, isInvalidInputType, isInvalidOutput } = require('./input-output-checks');
 /* ------------------- Hexadecimal Arithmetic Functions ------------------- */
 /**
  * Adds two hexadecimal numbers together.
@@ -8,7 +9,7 @@ const { isInvalidInputType, isDecimal } = require('./input-output-checks');
  * @returns {string} returns the sum of x and y in hexadecimal format.
  */
 function addition(x, y){
-    if(!isInvalidInputType(x) && !isInvalidInputType(y)){
+    if(isValidInput(x, y)){
         let temp= (parseInt(x, 16) + parseInt(y, 16));
         let result = temp.toString(16);
         return result;
@@ -25,7 +26,7 @@ function addition(x, y){
  * @returns {string} returns the difference of x and y in hexadecimal format.
  */
 function subtraction(x, y){
-    if(!isInvalidInputType(x) && !isInvalidInputType(y)){
+    if(isValidInput(x, y)){
         let temp = (parseInt(x, 16) - parseInt(y, 16));
         let result = temp.toString(16);
         return result;
@@ -42,7 +43,7 @@ function subtraction(x, y){
  * @returns {string} returns the product of x and y in hexadecimal format.
  */
 function multiplication(x, y){
-    if(!isInvalidInputType(x) && !isInvalidInputType(y)){
+    if(isValidInput(x, y)){
         let temp = (parseInt(x, 16) * parseInt(y, 16));
         let result = temp.toString(16);
         return result;
@@ -59,13 +60,26 @@ function multiplication(x, y){
  * @returns {string} returns the quotient of x and y in hexadecimal format.
  */
 function division(x, y){
-    if(!isInvalidInputType(x) && !isInvalidInputType(y)){
+    if(isValidInput(x, y)){
         let temp = (parseInt(x, 16) / parseInt(y, 16));
         let result = temp.toString(16);
+        if(isDecimal(result)) // to make sure the answer is not a decimal
+            return null;
         return result;
     } else {
         return null;
     }
+}
+
+/**
+ * Confirms the validity of input values
+ * 
+ * @param {string} x - first input.
+ * @param {string} y - second input.
+ * @returns {string} returns true if the input is valid.
+ */
+function isValidInput(x, y){
+    return (!isInvalidInputType(x) && !isInvalidInputType(y) && !isInputLimitReached(x) && !isInputLimitReached(y));
 }
 
 module.exports = { addition, subtraction, multiplication, division };

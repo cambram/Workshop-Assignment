@@ -8,11 +8,10 @@ let hexDictionary = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e'
  * @returns {boolean} returns true if the input length is longer than 3 digits.
  */
 function isInputLimitReached(input){
-    if(input.length > 3){
+    if(input.length > 3)
         return true;
-    } else {
+    else 
         return false;
-    }
 }
 
 /**
@@ -36,11 +35,11 @@ function isOutputLimitReached(output){
  * @returns {boolean} returns true if the output is negative.
  */
 function doesContainNegatives(output){
-    if(parseInt(output, 16) < 0){
+    if(parseInt(output, 16) < 0)
         return true;
-    } else {
+    else 
         return false;
-    }
+    
 }
 
 /**
@@ -50,11 +49,14 @@ function doesContainNegatives(output){
  * @returns {boolean} returns true if the input is a decimal.
  */
 function isDecimal(output){
-    if(parseFloat(output, 16) % 1 != 0){
-        return true;
-    } else {
+    if(output == "Infinity")
         return false;
-    }
+
+    if(parseFloat(output, 16) % 1 != 0)
+        return true;
+    else 
+        return false;
+    
 }
 
 /**
@@ -65,9 +67,8 @@ function isDecimal(output){
  */
 function isInvalidInputType(input){
     for(var i = 0; i < input.length; i++){
-        if(!containsHex(input.charAt(i))){
+        if(!containsHex(input.charAt(i)))
             return true;
-        }
     }
     return false;
 }

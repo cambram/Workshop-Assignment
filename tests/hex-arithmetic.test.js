@@ -3,6 +3,9 @@ const { addition, subtraction, multiplication, division } = require('../hex-arit
 describe("Hexadecimal Arithmetic Operations", () => {
     test("addition(x, y) should return the sum of x and y", () => {
         expect(addition("f42", "e3")).toBe("1025");
+        expect(addition("34f", "2d34")).toBe(null); //input too big
+        expect(addition("35d", "2ab")).toBe("608");
+        expect(addition("zgf", "2ab")).toBe(null); //invalid type
     });
 
     test("subtraction(x, y) should return the difference of x and y", () => {
