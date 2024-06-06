@@ -46,11 +46,11 @@ function doesContainNegatives(output){
 /**
  * Checks if the output is a decimal
  * 
- * @param {number} output - the output in base 10 format.
+ * @param {string} output - the output in hexadecimal format.
  * @returns {boolean} returns true if the input is a decimal.
  */
 function isDecimal(output){
-    if(output % 1 != 0){
+    if(parseFloat(output, 16) % 1 != 0){
         return true;
     } else {
         return false;
@@ -83,8 +83,14 @@ function containsHex(x){
     return contains;
 }
 
+/**
+ * Checks if the output is a valid output (no divison by 0)
+ * 
+ * @param {string} output - the hexadecimal input.
+ * @returns {boolean} returns true for invalid output.
+ */
 function isInvalidOutput(output){
-    if(output == undefined || output == Infinity)
+    if(output == "Infinity")
         return true;
     else
         return false;

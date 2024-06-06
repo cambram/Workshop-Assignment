@@ -1,6 +1,4 @@
-const { isInputLimitReached, isOutputLimitReached, doesContainNegatives, 
-    isDecimal, isInvalidInputType, isInvalidOutput } = require('./input-output-checks');
-
+const { isInvalidInputType, isDecimal } = require('./input-output-checks');
 /* ------------------- Hexadecimal Arithmetic Functions ------------------- */
 /**
  * Adds two hexadecimal numbers together.
