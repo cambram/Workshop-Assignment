@@ -10,13 +10,24 @@ describe("Hexadecimal Arithmetic Operations", () => {
 
     test("subtraction(x, y) should return the difference of x and y", () => {
         expect(subtraction("f42", "e3")).toBe("e5f");
+        expect(subtraction("aa", "fff")).toBe(null); // negative output
+        expect(subtraction("ed3", "ab3")).toBe("420");
+        expect(subtraction("ed", "aaaa")).toBe(null); // input too big
+        expect(subtraction("z2f", "2f4")).toBe(null); //invalid type
     });
 
     test("multiplication(x, y) should return the product of x and y", () => {
         expect(multiplication("f42", "e3")).toBe("d8786");
+        expect(multiplication("f42", "e3aa")).toBe(null); // input too big
+        expect(multiplication("ed", "a3")).toBe("96e7");
+        expect(multiplication("00r", "2rr")).toBe(null); //invalid type
     });
 
     test("division(x, y) should return the quotient of x and y", () => {
         expect(division("f42", "e")).toBe("117");
+        expect(division("f42", "e3")).toBe(null); // decimal output
+        expect(division("f42", "e333")).toBe(null); // input too big
+        expect(division("f42", "0")).toBe(null); // division by 0
+        expect(addition("p3c", "33l")).toBe(null); //invalid type
     });
 });
