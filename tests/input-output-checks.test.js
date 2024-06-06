@@ -1,6 +1,6 @@
 const { isInputLimitReached, isOutputLimitReached, doesContainNegatives, 
     isDecimal, isInvalidInputType, isInfinity} = require('../input-output-checks');
-const { division } = require('../hex-arithmetic');
+const { division, isValidInput, isInvalidOutput } = require('../hex-arithmetic');
 
 describe("Input and Output", () => {
     test("isInputLimitReached(x), should be false if x.length <= 3, should be true if x.length > 3", () => {
@@ -29,9 +29,21 @@ describe("Input and Output", () => {
         expect(isInvalidInputType("zh5")).toBe(true);
     });
 
-    test("isInvalidOutput(x), should return true if answer is undefined", () => {
+    test("isInfinity(x), should return true if answer is infinity (undefined)", () => {
         expect(isInfinity(division("4", "0"))).toBe(true);
         expect(isInfinity("Infinity")).toBe(true);
         expect(isInfinity(division("4", "2"))).toBe(false);
+    });
+
+    test("isValidInput(x), should return true if the input is valid", () => {
+        expect(isValidInput("aef","aef")).toBe(true);
+        expect(isValidInput("aeff","aef")).toBe(false);
+        expect(isValidInput("aez","34d")).toBe(false);
+    });
+
+    test("isInvalidOutput(x), should return true if output is invalid", () => {
+        expect(isInvalidOutput("ae3")).toBe(false);
+        expect(isInvalidOutput("Infinity")).toBe(true);
+        expect(isInvalidOutput(null)).toBe(true);
     });
 });

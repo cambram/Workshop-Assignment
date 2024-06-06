@@ -98,4 +98,4 @@ function isInvalidOutput(output){
     return (isOutputLimitReached(output) || doesContainNegatives(output) || isDecimal(output) || isInfinity(output));
 }
 
-module.exports = { addition, subtraction, multiplication, division };
+module.exports = { addition, subtraction, multiplication, division, isValidInput, isInvalidOutput };

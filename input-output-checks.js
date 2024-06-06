@@ -21,7 +21,10 @@ function isInputLimitReached(input){
  * @returns {boolean} returns true if the output length is longer than 6 digits.
  */
 function isOutputLimitReached(output){
-    if((output !== "Infinity" || output !== null) && output.length > 6){
+    if(output == "Infinity" || output == null)
+        return false;
+    
+    if(output.length > 6){
         return true;
     } else {
         return false;
@@ -35,7 +38,10 @@ function isOutputLimitReached(output){
  * @returns {boolean} returns true if the output is negative.
  */
 function doesContainNegatives(output){
-    if((output !== "Infinity" || output !== null) && parseInt(output, 16) < 0)
+    if(output == "Infinity" || output == null)
+        return false;
+
+    if(parseInt(output, 16) < 0)
         return true;
     else 
         return false;
@@ -49,7 +55,10 @@ function doesContainNegatives(output){
  * @returns {boolean} returns true if the input is a decimal.
  */
 function isDecimal(output){
-    if((output !== "Infinity" || output !== null) && output.includes('.')){
+    if(output == "Infinity" || output == null)
+        return false;
+    
+    if(output.includes('.')){
         return true;
     }else 
         return false;
