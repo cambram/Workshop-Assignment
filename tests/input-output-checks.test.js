@@ -31,6 +31,7 @@ describe("Input and Output", () => {
 
     test("isInvalidOutput(x), should return true if answer is undefined", () => {
         expect(isInfinity(division("4", "0"))).toBe(true);
+        expect(isInfinity("Infinity")).toBe(true);
         expect(isInfinity(division("4", "2"))).toBe(false);
     });
 });
