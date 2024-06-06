@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 
 app.get('/', (req, res) => {
-    res.send('<button>1</button>');
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 const startServer = () => {
@@ -11,6 +12,6 @@ const startServer = () => {
     });
 };
 
-/* GUI */
+startServer();
 
 module.exports = {app, startServer};
