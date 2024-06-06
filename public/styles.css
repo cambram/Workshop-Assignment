@@ -1,3 +1,46 @@
-#outer-container {
-    background-color: aqua;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+	padding: 0;
+	border: 0;
+    background-color: #F9FBF9;
+    font-family: "Inter", sans-serif;
+}
+
+#container-outer {
+    padding: 0.5rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 25% 25% 25% 25%;
+}
+
+.grid-item, .grid-item-operator {
+    border: none;
+    border-radius: 3px;
+    width: 3rem;
+    height: 3rem;
+    margin: 4px;
+    background-color: #E6E6E6;
+    font-weight: 700;
+    font-size: large;
+}
+
+.grid-item-operator {
+    background-color: #5AE763;
+}
+
+.grid-item:hover {
+    background-color: #C1C1C1;
+}
+
+.grid-item-operator:hover {
+    background-color: #4FAF56;
 }
