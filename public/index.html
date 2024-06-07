@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Hexadecimal Calculator</title>
+</head>
+<body>
+    <div id="container-outer">
+        <div id="container-answer-box">
+            <p id="answer-text"></p>
+        </div>
+        <div class="grid-container">
+            <button class="grid-item" onclick="appendInput('1')">1</button>
+            <button class="grid-item" onclick="appendInput('2')">2</button>
+            <button class="grid-item" onclick="appendInput('3')">3</button>
+            <button class="grid-item" onclick="appendInput('4')">4</button>
+            <button class="grid-item-operator" onclick="setOperator('add')">&plus;</button>
+            <button class="grid-item" onclick="appendInput('5')">5</button>
+            <button class="grid-item" onclick="appendInput('6')">6</button>
+            <button class="grid-item" onclick="appendInput('7')">7</button>
+            <button class="grid-item" onclick="appendInput('8')">8</button>
+            <button class="grid-item-operator" onclick="setOperator('sub')">&minus;</button>
+            <button class="grid-item" onclick="appendInput('9')">9</button>
+            <button class="grid-item" onclick="appendInput('a')">A</button>
+            <button class="grid-item" onclick="appendInput('b')">B</button>
+            <button class="grid-item" onclick="appendInput('c')">C</button>
+            <button class="grid-item-operator" onclick="setOperator('mul')">&times;</button>
+            <button class="grid-item" onclick="appendInput('d')">D</button>
+            <button class="grid-item" onclick="appendInput('e')">E</button>
+            <button class="grid-item" onclick="appendInput('f')">F</button>
+            <button class="grid-item" onclick="appendInput('0')">0</button>
+            <button class="grid-item-operator" onclick="setOperator('div')">&divide;</button>
+            <button class="grid-item" id="clear-button" onclick="clearDisplay()">CLEAR</button>
+            <button class="grid-item" id="equals-button" onclick="equals()">&equals;</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
