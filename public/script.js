@@ -1,7 +1,7 @@
 let input1 = '';
 let input2 = '';
 let operator = '';
-let removeOperatorDisplay = true;
+let removeOperatorDisplay = false;
 
 const display = document.getElementById('answer-text'); // get doc access to the display to manipulate it
 
@@ -45,6 +45,22 @@ function setOperator(input){
     }
 }
 
-function equals(){ // calculate the equation
-    input2 = display.textContent;
+async function equals(){ // calculate the equation
+    input2 = display.textContent; //save input 2
+    let data = {
+        operation: operator,
+        x: input1,
+        y: input2
+    };
+
+    const response = await fetch('/equals', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    display.textContent = result.result;
 }
