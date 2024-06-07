@@ -15,11 +15,22 @@ body {
 #container-outer {
     padding: 0.5rem;
 }
+#container-answer-box{
+    display: flex;
+    justify-content: right;
+}
+
+#answer-text {
+    text-align: right;
+    font-weight: 900;
+    font-size: 150%;
+    margin-right: 5%;
+}
 
 .grid-container {
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
 }
 
 .grid-item, .grid-item-operator {
@@ -33,7 +44,7 @@ body {
     font-size: large;
 }
 
-.grid-item-operator {
+.grid-item-operator, #equals-button {
     background-color: #5AE763;
 }
 
@@ -41,6 +52,18 @@ body {
     background-color: #C1C1C1;
 }
 
-.grid-item-operator:hover {
+.grid-item-operator:hover, #equals-button:hover {
     background-color: #4FAF56;
+}
+
+#clear-button {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    width: 90%;
+}
+
+#equals-button {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    width: 90%;
 }
