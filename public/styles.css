@@ -23,12 +23,13 @@ body {
 #answer-text {
     text-align: right;
     font-weight: 900;
-    font-size: 150%;
-    margin-right: 5%;
+    font-size: 2.5rem;
+    margin: 2% 5% 2% 0; /* top | right | bottom | left */
 }
 
 .grid-container {
     display: grid;
+    width: 20rem;
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: 20% 20% 20% 20% 20%;
 }
@@ -36,12 +37,13 @@ body {
 .grid-item, .grid-item-operator {
     border: none;
     border-radius: 3px;
-    width: 3rem;
+    width: auto;
     height: 3rem;
     margin: 4px;
+    padding: 0;
     background-color: #E6E6E6;
     font-weight: 700;
-    font-size: large;
+    font-size: 1.5rem;
 }
 
 .grid-item-operator, #equals-button {
@@ -57,13 +59,11 @@ body {
 }
 
 #clear-button {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    width: 90%;
+    grid-column: span 3;
+    width: auto;
 }
 
 #equals-button {
-    grid-column-start: 4;
-    grid-column-end: 6;
-    width: 90%;
+    grid-column: span 2;
+    width: auto;
 }
