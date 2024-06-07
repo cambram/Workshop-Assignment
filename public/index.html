@@ -9,32 +9,33 @@
 <body>
     <div id="container-outer">
         <div id="container-answer-box">
-            <p id="answer-text">A3F</p>
+            <p id="answer-text"></p>
         </div>
         <div class="grid-container">
-            <button class="grid-item">1</button>
-            <button class="grid-item">2</button>
-            <button class="grid-item">3</button>
-            <button class="grid-item">4</button>
-            <button class="grid-item-operator">&plus;</button>
-            <button class="grid-item">5</button>
-            <button class="grid-item">6</button>
-            <button class="grid-item">7</button>
-            <button class="grid-item">8</button>
-            <button class="grid-item-operator">&minus;</button>
-            <button class="grid-item">9</button>
-            <button class="grid-item">A</button>
-            <button class="grid-item">B</button>
-            <button class="grid-item">C</button>
-            <button class="grid-item-operator">&times;</button>
-            <button class="grid-item">D</button>
-            <button class="grid-item">E</button>
-            <button class="grid-item">F</button>
-            <button class="grid-item">0</button>
-            <button class="grid-item-operator">&divide;</button>
-            <button class="grid-item" id="clear-button">clear</button>
-            <button class="grid-item" id="equals-button">&equals;</button>
+            <button class="grid-item" onclick="appendInput('1')">1</button>
+            <button class="grid-item" onclick="appendInput('2')">2</button>
+            <button class="grid-item" onclick="appendInput('3')">3</button>
+            <button class="grid-item" onclick="appendInput('4')">4</button>
+            <button class="grid-item-operator" onclick="setOperator('add')">&plus;</button>
+            <button class="grid-item" onclick="appendInput('5')">5</button>
+            <button class="grid-item" onclick="appendInput('6')">6</button>
+            <button class="grid-item" onclick="appendInput('7')">7</button>
+            <button class="grid-item" onclick="appendInput('8')">8</button>
+            <button class="grid-item-operator" onclick="setOperator('sub')">&minus;</button>
+            <button class="grid-item" onclick="appendInput('9')">9</button>
+            <button class="grid-item" onclick="appendInput('A')">A</button>
+            <button class="grid-item" onclick="appendInput('B')">B</button>
+            <button class="grid-item" onclick="appendInput('C')">C</button>
+            <button class="grid-item-operator" onclick="setOperator('mul')">&times;</button>
+            <button class="grid-item" onclick="appendInput('D')">D</button>
+            <button class="grid-item" onclick="appendInput('E')">E</button>
+            <button class="grid-item" onclick="appendInput('F')">F</button>
+            <button class="grid-item" onclick="appendInput('0')">0</button>
+            <button class="grid-item-operator" onclick="setOperator('div')">&divide;</button>
+            <button class="grid-item" id="clear-button" onclick="clearDisplay()">clear</button>
+            <button class="grid-item" id="equals-button" onclick="equals()">&equals;</button>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
